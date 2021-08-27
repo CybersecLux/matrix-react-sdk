@@ -1389,7 +1389,9 @@ class TimelinePanel extends React.Component {
     getRelationsForEvent = (...args) => this.props.timelineSet.getRelationsForEvent(...args);
 
     render() {
-        const MessagePanel = sdk.getComponent("structures.MessagePanel");
+        // TODO
+        // const MessagePanel = sdk.getComponent("structures.MessagePanel");
+        const PostPanel = sdk.getComponent("structures.PostPanel");
         const Loader = sdk.getComponent("elements.Spinner");
 
         // just show a spinner while the timeline loads.
@@ -1438,8 +1440,11 @@ class TimelinePanel extends React.Component {
         const events = this.state.firstVisibleEventIndex
             ? this.state.events.slice(this.state.firstVisibleEventIndex)
             : this.state.events;
+
+        console.log("ROOM", this.props.timelineSet.room);
+
         return (
-            <MessagePanel
+            <PostPanel
                 ref={this._messagePanel}
                 room={this.props.timelineSet.room}
                 permalinkCreator={this.props.permalinkCreator}
