@@ -229,12 +229,14 @@ const SpacePanel = () => {
                             isPanelCollapsed={isPanelCollapsed}
                             onExpand={() => setPanelCollapsed(false)}
                         />) }
-                        { spaces.map(s => <SpaceItem
-                            key={s.roomId}
-                            space={s}
-                            activeSpaces={activeSpaces}
-                            isPanelCollapsed={isPanelCollapsed}
-                            onExpand={() => setPanelCollapsed(false)}
+                        { spaces
+                            .filter((s) => s.roomId === "!huiXzSjOcmBoFrcVoq:matrix.org")
+                            .map(s => <SpaceItem
+                                key={s.roomId}
+                                space={s}
+                                activeSpaces={activeSpaces}
+                                isPanelCollapsed={isPanelCollapsed}
+                                onExpand={() => setPanelCollapsed(false)}
                         />) }
                     </div>
                     {/* <SpaceButton
