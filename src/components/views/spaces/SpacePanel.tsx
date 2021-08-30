@@ -237,7 +237,7 @@ const SpacePanel = () => {
                             onExpand={() => setPanelCollapsed(false)}
                         />) }
                     </div>
-                    <SpaceButton
+                    {/* <SpaceButton
                         className={newClasses}
                         tooltip={menuDisplayed ? _t("Cancel") : _t("Create a space")}
                         onClick={menuDisplayed ? closeMenu : () => {
@@ -245,7 +245,7 @@ const SpacePanel = () => {
                             openMenu();
                         }}
                         isNarrow={isPanelCollapsed}
-                    />
+                    /> */}
                 </AutoHideScrollbar>
                 <AccessibleTooltipButton
                     className={classNames("mx_SpacePanel_toggleCollapse", {expanded: !isPanelCollapsed})}

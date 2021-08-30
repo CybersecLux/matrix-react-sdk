@@ -182,6 +182,9 @@ interface IReadReceiptProps {
 }
 
 interface IProps {
+    // level of the post/comment
+    level: number;
+
     // the MatrixEvent to show
     mxEvent: MatrixEvent;
 

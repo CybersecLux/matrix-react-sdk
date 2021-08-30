@@ -105,7 +105,7 @@ const HomePage: React.FC<IProps> = ({ justRegistered = false }) => {
         introSection = <UserWelcomeTop />;
     } else {
         const brandingConfig = config.branding;
-        let logoUrl = "themes/element/img/logos/element-logo.svg";
+        let logoUrl = "themes/element/img/logos/logo-cyberlux.png";
         if (brandingConfig && brandingConfig.authHeaderLogoUrl) {
             logoUrl = brandingConfig.authHeaderLogoUrl;
         }
@@ -126,10 +126,7 @@ const HomePage: React.FC<IProps> = ({ justRegistered = false }) => {
                     { _t("Send a Direct Message") }
                 </AccessibleButton>
                 <AccessibleButton onClick={onClickExplore} className="mx_HomePage_button_explore">
-                    { _t("Explore Public Rooms") }
-                </AccessibleButton>
-                <AccessibleButton onClick={onClickNewRoom} className="mx_HomePage_button_createGroup">
-                    { _t("Create a Group Chat") }
+                    Open CYBERLUX Community space
                 </AccessibleButton>
             </div>
         </div>
