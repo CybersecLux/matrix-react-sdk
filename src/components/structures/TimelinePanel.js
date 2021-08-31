@@ -1442,7 +1442,7 @@ class TimelinePanel extends React.Component {
 
         if (this.props.timelineSet.room.roomId
             && this.props.timelineSet.room.name.startsWith("CYBERLUX - ")
-            && !this.props.timelineSet.room.name.startsWith("CYBERLUX - Help")) {
+            && !this.props.timelineSet.room.name.startsWith("CYBERLUX - Support")) {
             return (
                 <PostPanel
                     ref={this._messagePanel}

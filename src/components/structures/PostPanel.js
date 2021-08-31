@@ -376,6 +376,10 @@ export default class PostPanel extends React.Component {
             return false
         }
 
+        if (mxEv.isRedacted()) {
+            return false;
+        }
+
         if (this._showHiddenEventsInTimeline) {
             return true;
         }
