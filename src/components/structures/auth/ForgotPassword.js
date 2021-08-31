@@ -224,10 +224,10 @@ export default class ForgotPassword extends React.Component {
         return <div>
             {errorText}
             {serverDeadSection}
-            <ServerPicker
+            {/* <ServerPicker
                 serverConfig={this.props.serverConfig}
                 onServerConfigChange={this.props.onServerConfigChange}
-            />
+            /> */}
             <form onSubmit={this.onSubmitForm}>
                 <div className="mx_AuthBody_fieldRow">
                     <Field
