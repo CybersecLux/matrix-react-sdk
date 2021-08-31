@@ -218,7 +218,7 @@ const SpacePanel = () => {
                             className="mx_SpaceButton_home"
                             onClick={() => SpaceStore.instance.setActiveSpace(null)}
                             selected={!activeSpace}
-                            tooltip={_t("All rooms")}
+                            tooltip={"Home"}
                             notificationState={RoomNotificationStateStore.instance.globalState}
                             isNarrow={isPanelCollapsed}
                         />

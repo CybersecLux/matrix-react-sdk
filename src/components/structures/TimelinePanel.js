@@ -1389,8 +1389,7 @@ class TimelinePanel extends React.Component {
     getRelationsForEvent = (...args) => this.props.timelineSet.getRelationsForEvent(...args);
 
     render() {
-        // TODO
-        // const MessagePanel = sdk.getComponent("structures.MessagePanel");
+        const MessagePanel = sdk.getComponent("structures.MessagePanel");
         const PostPanel = sdk.getComponent("structures.PostPanel");
         const Loader = sdk.getComponent("elements.Spinner");
 
@@ -1441,40 +1440,75 @@ class TimelinePanel extends React.Component {
             ? this.state.events.slice(this.state.firstVisibleEventIndex)
             : this.state.events;
 
-        console.log("ROOM", this.props.timelineSet.room);
-
-        return (
-            <PostPanel
-                ref={this._messagePanel}
-                room={this.props.timelineSet.room}
-                permalinkCreator={this.props.permalinkCreator}
-                hidden={this.props.hidden}
-                backPaginating={this.state.backPaginating}
-                forwardPaginating={forwardPaginating}
-                events={events}
-                highlightedEventId={this.props.highlightedEventId}
-                readMarkerEventId={this.state.readMarkerEventId}
-                readMarkerVisible={this.state.readMarkerVisible}
-                suppressFirstDateSeparator={this.state.canBackPaginate}
-                showUrlPreview={this.props.showUrlPreview}
-                showReadReceipts={this.props.showReadReceipts}
-                ourUserId={MatrixClientPeg.get().credentials.userId}
-                stickyBottom={stickyBottom}
-                onScroll={this.onMessageListScroll}
-                onFillRequest={this.onMessageListFillRequest}
-                onUnfillRequest={this.onMessageListUnfillRequest}
-                isTwelveHour={this.state.isTwelveHour}
-                alwaysShowTimestamps={this.state.alwaysShowTimestamps}
-                className={this.props.className}
-                tileShape={this.props.tileShape}
-                resizeNotifier={this.props.resizeNotifier}
-                getRelationsForEvent={this.getRelationsForEvent}
-                editState={this.state.editState}
-                showReactions={this.props.showReactions}
-                layout={this.props.layout}
-                enableFlair={SettingsStore.getValue(UIFeature.Flair)}
-            />
-        );
+        if (this.props.timelineSet.room.roomId
+            && this.props.timelineSet.room.name.startsWith("CYBERLUX - ")
+            && !this.props.timelineSet.room.name.startsWith("CYBERLUX - Help")) {
+            return (
+                <PostPanel
+                    ref={this._messagePanel}
+                    room={this.props.timelineSet.room}
+                    permalinkCreator={this.props.permalinkCreator}
+                    hidden={this.props.hidden}
+                    backPaginating={this.state.backPaginating}
+                    forwardPaginating={forwardPaginating}
+                    events={events}
+                    highlightedEventId={this.props.highlightedEventId}
+                    readMarkerEventId={this.state.readMarkerEventId}
+                    readMarkerVisible={this.state.readMarkerVisible}
+                    suppressFirstDateSeparator={this.state.canBackPaginate}
+                    showUrlPreview={this.props.showUrlPreview}
+                    showReadReceipts={this.props.showReadReceipts}
+                    ourUserId={MatrixClientPeg.get().credentials.userId}
+                    stickyBottom={stickyBottom}
+                    onScroll={this.onMessageListScroll}
+                    onFillRequest={this.onMessageListFillRequest}
+                    onUnfillRequest={this.onMessageListUnfillRequest}
+                    isTwelveHour={this.state.isTwelveHour}
+                    alwaysShowTimestamps={this.state.alwaysShowTimestamps}
+                    className={this.props.className}
+                    tileShape={this.props.tileShape}
+                    resizeNotifier={this.props.resizeNotifier}
+                    getRelationsForEvent={this.getRelationsForEvent}
+                    editState={this.state.editState}
+                    showReactions={this.props.showReactions}
+                    layout={this.props.layout}
+                    enableFlair={SettingsStore.getValue(UIFeature.Flair)}
+                />
+            );
+        } else {
+            return (
+                <MessagePanel
+                    ref={this._messagePanel}
+                    room={this.props.timelineSet.room}
+                    permalinkCreator={this.props.permalinkCreator}
+                    hidden={this.props.hidden}
+                    backPaginating={this.state.backPaginating}
+                    forwardPaginating={forwardPaginating}
+                    events={events}
+                    highlightedEventId={this.props.highlightedEventId}
+                    readMarkerEventId={this.state.readMarkerEventId}
+                    readMarkerVisible={this.state.readMarkerVisible}
+                    suppressFirstDateSeparator={this.state.canBackPaginate}
+                    showUrlPreview={this.props.showUrlPreview}
+                    showReadReceipts={this.props.showReadReceipts}
+                    ourUserId={MatrixClientPeg.get().credentials.userId}
+                    stickyBottom={stickyBottom}
+                    onScroll={this.onMessageListScroll}
+                    onFillRequest={this.onMessageListFillRequest}
+                    onUnfillRequest={this.onMessageListUnfillRequest}
+                    isTwelveHour={this.state.isTwelveHour}
+                    alwaysShowTimestamps={this.state.alwaysShowTimestamps}
+                    className={this.props.className}
+                    tileShape={this.props.tileShape}
+                    resizeNotifier={this.props.resizeNotifier}
+                    getRelationsForEvent={this.getRelationsForEvent}
+                    editState={this.state.editState}
+                    showReactions={this.props.showReactions}
+                    layout={this.props.layout}
+                    enableFlair={SettingsStore.getValue(UIFeature.Flair)}
+                />
+            );
+        }
     }
 }
 
