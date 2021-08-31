@@ -40,7 +40,7 @@ const onClickSendDm = () => {
     dis.dispatch({action: 'view_create_chat'});
 };
 
-const onClickExplore = () => {
+/* const onClickExplore = () => {
     Analytics.trackEvent('home_page', 'button', 'room_directory');
     CountlyAnalytics.instance.track("home_page_button", { button: "room_directory" });
     dis.fire(Action.ViewRoomDirectory);
@@ -50,6 +50,10 @@ const onClickNewRoom = () => {
     Analytics.trackEvent('home_page', 'button', 'create_room');
     CountlyAnalytics.instance.track("home_page_button", { button: "create_room" });
     dis.dispatch({action: 'view_create_room'});
+}; */
+
+const onClickOpenSpace = () => {
+    window.open("/#/room/!huiXzSjOcmBoFrcVoq:matrix.org");
 };
 
 interface IProps {
@@ -125,7 +129,7 @@ const HomePage: React.FC<IProps> = ({ justRegistered = false }) => {
                 <AccessibleButton onClick={onClickSendDm} className="mx_HomePage_button_sendDm">
                     { _t("Send a Direct Message") }
                 </AccessibleButton>
-                <AccessibleButton onClick={onClickExplore} className="mx_HomePage_button_explore">
+                <AccessibleButton onClick={onClickOpenSpace} className="mx_HomePage_button_explore">
                     Open CYBERLUX Community space
                 </AccessibleButton>
             </div>
