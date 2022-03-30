@@ -50,6 +50,10 @@ const onClickNewRoom = (ev: ButtonEvent) => {
     dis.dispatch({ action: 'view_create_room' });
 };
 
+const onClickOpenSpace = () => {
+    window.open("/#/room/!huiXzSjOcmBoFrcVoq:matrix.org");
+};
+
 interface IProps {
     justRegistered?: boolean;
 }
@@ -104,7 +108,7 @@ const HomePage: React.FC<IProps> = ({ justRegistered = false }) => {
         introSection = <UserWelcomeTop />;
     } else {
         const brandingConfig = SdkConfig.getObject("branding");
-        const logoUrl = brandingConfig?.get("auth_header_logo_url") ?? "themes/element/img/logos/element-logo.svg";
+        const logoUrl = brandingConfig?.get("auth_header_logo_url") ?? "themes/element/img/logos/cyberlux-logo.png";
 
         introSection = <React.Fragment>
             <img src={logoUrl} alt={config.brand} />
@@ -120,11 +124,14 @@ const HomePage: React.FC<IProps> = ({ justRegistered = false }) => {
                 <AccessibleButton onClick={onClickSendDm} className="mx_HomePage_button_sendDm">
                     { _tDom("Send a Direct Message") }
                 </AccessibleButton>
-                <AccessibleButton onClick={onClickExplore} className="mx_HomePage_button_explore">
+                {/* <AccessibleButton onClick={onClickExplore} className="mx_HomePage_button_explore">
                     { _tDom("Explore Public Rooms") }
-                </AccessibleButton>
-                <AccessibleButton onClick={onClickNewRoom} className="mx_HomePage_button_createGroup">
+                </AccessibleButton> */}
+                {/* <AccessibleButton onClick={onClickNewRoom} className="mx_HomePage_button_createGroup">
                     { _tDom("Create a Group Chat") }
+                </AccessibleButton> */}
+                <AccessibleButton onClick={onClickOpenSpace} className="mx_HomePage_button_explore">
+                    Open CYBERLUX space
                 </AccessibleButton>
             </div>
         </div>
