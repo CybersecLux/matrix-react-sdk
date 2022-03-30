@@ -108,7 +108,7 @@ const HomePage: React.FC<IProps> = ({ justRegistered = false }) => {
         introSection = <UserWelcomeTop />;
     } else {
         const brandingConfig = SdkConfig.getObject("branding");
-        const logoUrl = brandingConfig?.get("auth_header_logo_url") ?? "themes/element/img/logos/cyberlux-logo.png";
+        const logoUrl = brandingConfig?.get("auth_header_logo_url") ?? "themes/element/img/logos/logo-cyberlux.png";
 
         introSection = <React.Fragment>
             <img src={logoUrl} alt={config.brand} />
