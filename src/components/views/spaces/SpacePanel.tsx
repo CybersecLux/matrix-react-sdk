@@ -266,7 +266,7 @@ interface IInnerSpacePanelProps extends DroppableProvidedProps {
     innerRef: RefCallback<HTMLElement>;
 }
 
-// Optimisation based on https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/api/droppable.md#recommended-droppable--performance-optimisation
+// Optimisatio based on https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/api/droppable.md#recommended-droppable--performance-optimisation
 const InnerSpacePanel = React.memo<IInnerSpacePanelProps>(({
     children,
     isPanelCollapsed,
@@ -301,7 +301,7 @@ const InnerSpacePanel = React.memo<IInnerSpacePanelProps>(({
                 onExpand={() => setPanelCollapsed(false)}
             />
         )) }
-        { actualSpaces.map((s, i) => (
+        { actualSpaces.filter((s) => s.name === "CYBERSECURITY Luxembourg").map((s, i) => (
             <Draggable key={s.roomId} draggableId={s.roomId} index={i}>
                 { (provided, snapshot) => (
                     <SpaceItem
@@ -318,11 +318,11 @@ const InnerSpacePanel = React.memo<IInnerSpacePanelProps>(({
                 ) }
             </Draggable>
         )) }
-        { children }
-        {
+        { /* children */ }
+        { /*
             shouldShowComponent(UIComponent.CreateSpaces) &&
             <CreateSpaceButton isPanelCollapsed={isPanelCollapsed} setPanelCollapsed={setPanelCollapsed} />
-        }
+        */ }
 
     </IndicatorScrollbar>;
 });
